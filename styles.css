@@ -437,17 +437,35 @@ body {
     margin-top: 0;
 }
 
+.form-section-label {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    margin-bottom: 0;
+    display: block;
+}
+
 .optional-text {
     font-weight: 400;
     color: var(--color-text-light);
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
 }
 
 .checkbox-group {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
-    margin-top: var(--spacing-xs);
+    margin-top: 0;
+}
+
+.form-separator {
+    height: 1px;
+    background-color: var(--color-border);
+    margin: var(--spacing-md) 0;
+}
+
+.form-group-spaced {
+    margin-top: var(--spacing-md);
 }
 
 .interests-group {
