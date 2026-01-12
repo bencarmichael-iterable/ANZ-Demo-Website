@@ -429,6 +429,20 @@ body {
     display: block;
 }
 
+.form-section-header {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    margin-top: 0;
+}
+
+.optional-text {
+    font-weight: 400;
+    color: var(--color-text-light);
+    font-size: var(--font-size-base);
+}
+
 .checkbox-group {
     display: flex;
     flex-direction: column;
