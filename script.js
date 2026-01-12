@@ -84,13 +84,14 @@ if (signupForm) {
         e.preventDefault();
         
         // Collect form data
+        const interestsCheckboxes = document.querySelectorAll('input[name="interests"]:checked');
         const formData = {
             firstName: document.getElementById('firstName').value,
             lastName: document.getElementById('lastName').value,
             email: document.getElementById('signupEmail').value,
             phone: document.getElementById('phone').value,
             company: document.getElementById('company').value,
-            interests: Array.from(document.getElementById('interests').selectedOptions).map(option => option.value),
+            interests: Array.from(interestsCheckboxes).map(checkbox => checkbox.value),
             consentEmail: document.getElementById('consentEmail').checked,
             consentSMS: document.getElementById('consentSMS').checked,
             termsConsent: document.getElementById('termsConsent').checked

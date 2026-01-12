@@ -436,6 +436,12 @@ body {
     margin-top: var(--spacing-xs);
 }
 
+.interests-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+}
+
 .checkbox-item {
     display: flex;
     align-items: center;
@@ -645,6 +651,10 @@ body {
     }
     
     .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .interests-group {
         grid-template-columns: 1fr;
     }
     

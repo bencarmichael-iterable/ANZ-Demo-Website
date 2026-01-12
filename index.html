@@ -139,18 +139,41 @@
                         <input type="text" id="company" name="company">
                     </div>
                     <div class="form-group">
-                        <label for="interests">Key Interests</label>
-                        <select id="interests" name="interests" multiple size="4">
-                            <option value="email-marketing">Email Marketing</option>
-                            <option value="sms-marketing">SMS Marketing</option>
-                            <option value="push-notifications">Push Notifications</option>
-                            <option value="in-app-messaging">In-App Messaging</option>
-                            <option value="marketing-automation">Marketing Automation</option>
-                            <option value="customer-segmentation">Customer Segmentation</option>
-                            <option value="analytics-reporting">Analytics & Reporting</option>
-                            <option value="personalization">Personalization</option>
-                        </select>
-                        <small class="form-hint">Hold Ctrl (Cmd on Mac) to select multiple interests</small>
+                        <label class="checkbox-label">Key Interests</label>
+                        <div class="checkbox-group interests-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interests" value="email-marketing">
+                                <span>Email Marketing</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interests" value="sms-marketing">
+                                <span>SMS Marketing</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interests" value="push-notifications">
+                                <span>Push Notifications</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interests" value="in-app-messaging">
+                                <span>In-App Messaging</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interests" value="marketing-automation">
+                                <span>Marketing Automation</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interests" value="customer-segmentation">
+                                <span>Customer Segmentation</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interests" value="analytics-reporting">
+                                <span>Analytics & Reporting</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interests" value="personalization">
+                                <span>Personalization</span>
+                            </label>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="checkbox-label">Marketing Consent (Optional)</label>
