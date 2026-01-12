@@ -3,8 +3,5 @@
   command = "npm run build"
   publish = "dist"
 
-[[redirects]]
-  # Redirect all routes to index.html for SPA-like behavior (if needed)
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Note: Removed the catch-all redirect since we have multiple HTML pages
+# Each page (index.html, data-capture.html, etc.) should be served directly

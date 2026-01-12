@@ -2,7 +2,16 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    rollupOptions: {
+      input: {
+        main: './index.html',
+        'data-capture': './data-capture.html',
+        'personalisation': './personalisation.html',
+        'automation': './automation.html',
+        'analytics': './analytics.html'
+      }
+    }
   },
   server: {
     port: 3000,
