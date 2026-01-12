@@ -2,6 +2,12 @@
 // BASIC INTERACTIVITY (Placeholder for future API integration)
 // ============================================
 
+// Import Iterable SDK configuration (will not initialize until API key is provided)
+import { initializeIterable, getIterableSDK, isIterableInitialized, resetIterable } from './iterable-config.js';
+
+// Iterable SDK is ready but NOT initialized - will not send any data
+// To initialize: call initializeIterable(apiKey) after API key is provided and approved
+
 // DOM Elements
 const loginBtn = document.getElementById('loginBtn');
 const loginModal = document.getElementById('loginModal');
@@ -78,7 +84,11 @@ if (loginForm) {
 
 // Logout functionality
 const handleLogout = () => {
-    // TODO: Clear Iterable session/tokens
+    // Clear Iterable session if initialized
+    if (isIterableInitialized()) {
+        resetIterable();
+    }
+    
     userPanel.style.display = 'none';
     if (loginBtn) {
         loginBtn.style.display = 'inline-block';
