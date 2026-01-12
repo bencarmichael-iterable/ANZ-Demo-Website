@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iterable Demo Site - Showcasing marketing automation capabilities">
+    <title>Iterable Demo Site</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://www.ematicsolutions.com/wp-content/uploads/2021/01/18-iterable-color.png" alt="Iterable Logo" class="logo-img">
+                </div>
+                <nav class="nav" id="mainNav">
+                    <!-- Navigation will be populated dynamically based on auth state -->
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <button class="btn btn-secondary" id="loginBtn">Sign In</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Iterable Demo Site</h1>
+                <p class="hero-subtitle">Experience the power of personalized marketing automation. Capture data, engage customers, and drive results.</p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" id="ctaPrimary">Get Started</button>
+                    <button class="btn btn-outline" id="ctaSecondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Data Capture</h3>
+                    <p class="feature-description">Flexibly capture user data from websites and apps with our powerful API integration.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Personalization</h3>
+                    <p class="feature-description">Deliver personalized experiences based on real-time user behavior and preferences.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Automation</h3>
+                    <p class="feature-description">Automate your marketing campaigns with intelligent workflows and triggers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">Analytics</h3>
+                    <p class="feature-description">Track performance and optimize campaigns with comprehensive analytics and insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="about">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Capture Events</h3>
+                    <p class="step-description">Track user interactions and custom events from your website and applications.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Update Profiles</h3>
+                    <p class="step-description">Enrich user profiles with real-time data to build comprehensive customer insights.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Engage & Convert</h3>
+                    <p class="step-description">Deliver personalized messages and experiences that drive engagement and conversions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Get Started?</h2>
+                <p class="cta-description">Experience the full power of Iterable's marketing automation platform.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary btn-large" id="ctaBottom">Start Your Demo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">&copy; 2025 Iterable Demo Site. Built for demonstration purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal (hidden by default, will be shown when needed) -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h2 class="modal-title">Sign In</h2>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="userId">User ID</label>
+                    <input type="text" id="userId" name="userId" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Logged In State (hidden by default) -->
+    <div class="user-panel" id="userPanel" style="display: none;">
+        <div class="container">
+            <div class="user-panel-content">
+                <div class="user-info">
+                    <span class="user-greeting">Welcome, <span id="userDisplayName">User</span>!</span>
+                </div>
+                <div class="user-actions">
+                    <button class="btn btn-secondary" id="triggerEventBtn">Trigger Custom Event</button>
+                    <button class="btn btn-secondary" id="updateProfileBtn">Update Profile</button>
+                    <button class="btn btn-outline" id="logoutBtn">Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
