@@ -69,6 +69,44 @@ if (logoutBtn) {
     });
 }
 
+// Sign Up form submission (placeholder - will integrate with Iterable API later)
+const signupForm = document.getElementById('signupForm');
+if (signupForm) {
+    signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Collect form data
+        const formData = {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            email: document.getElementById('signupEmail').value,
+            phone: document.getElementById('phone').value,
+            company: document.getElementById('company').value,
+            interests: Array.from(document.getElementById('interests').selectedOptions).map(option => option.value),
+            consentEmail: document.getElementById('consentEmail').checked,
+            consentSMS: document.getElementById('consentSMS').checked,
+            termsConsent: document.getElementById('termsConsent').checked
+        };
+        
+        // TODO: Integrate with Iterable API to:
+        // 1. Create/update user profile
+        // 2. Track signup event
+        // 3. Update subscription preferences based on consent checkboxes
+        // 4. Add user to lists based on interests
+        
+        console.log('Sign up form submitted:', formData);
+        
+        // Show success message (will be replaced with actual API call)
+        alert('Thank you for signing up! We\'ll be in touch soon.\n\n(API integration coming soon)');
+        
+        // Reset form
+        signupForm.reset();
+        
+        // Scroll to top to show confirmation
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
 // CTA button handlers (placeholder)
 const ctaButtons = document.querySelectorAll('#ctaPrimary, #ctaSecondary, #ctaBottom');
 ctaButtons.forEach(btn => {
@@ -76,9 +114,10 @@ ctaButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             // TODO: Track custom events to Iterable
             console.log('CTA clicked:', btn.id);
-            // For now, open login modal
-            if (loginModal) {
-                loginModal.classList.add('active');
+            // Scroll to signup form
+            const signupSection = document.getElementById('signup');
+            if (signupSection) {
+                signupSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     }

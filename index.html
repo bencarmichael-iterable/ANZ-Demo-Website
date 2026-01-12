@@ -20,6 +20,7 @@
                     <a href="#home" class="nav-link">Home</a>
                     <a href="#features" class="nav-link">Features</a>
                     <a href="#about" class="nav-link">About</a>
+                    <a href="#signup" class="nav-link">Sign Up</a>
                     <button class="btn btn-secondary" id="loginBtn">Sign In</button>
                 </nav>
             </div>
@@ -102,6 +103,76 @@
                 <div class="cta-buttons">
                     <button class="btn btn-primary btn-large" id="ctaBottom">Start Your Demo</button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sign Up Section -->
+    <section class="signup-section" id="signup">
+        <div class="container">
+            <div class="signup-content">
+                <h2 class="section-title">Create Your Account</h2>
+                <p class="signup-description">Join us today and start experiencing personalized marketing automation.</p>
+                <form class="signup-form" id="signupForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signupEmail">Email Address <span class="required">*</span></label>
+                            <input type="email" id="signupEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="interests">Key Interests</label>
+                        <select id="interests" name="interests" multiple size="4">
+                            <option value="email-marketing">Email Marketing</option>
+                            <option value="sms-marketing">SMS Marketing</option>
+                            <option value="push-notifications">Push Notifications</option>
+                            <option value="in-app-messaging">In-App Messaging</option>
+                            <option value="marketing-automation">Marketing Automation</option>
+                            <option value="customer-segmentation">Customer Segmentation</option>
+                            <option value="analytics-reporting">Analytics & Reporting</option>
+                            <option value="personalization">Personalization</option>
+                        </select>
+                        <small class="form-hint">Hold Ctrl (Cmd on Mac) to select multiple interests</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">Marketing Consent (Optional)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="consentEmail" name="consentEmail" value="email">
+                                <span>Email Marketing</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="consentSMS" name="consentSMS" value="sms">
+                                <span>SMS Marketing</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="termsConsent" name="termsConsent" required>
+                            <span>I agree to the <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a> <span class="required">*</span></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large btn-full">Sign Up</button>
+                </form>
             </div>
         </div>
     </section>
