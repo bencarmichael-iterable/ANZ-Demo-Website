@@ -38,22 +38,30 @@ if (loginForm) {
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        const email = document.getElementById('email').value;
-        const userId = document.getElementById('userId').value;
+        const email = document.getElementById('email').value.trim();
+        
+        if (!email) {
+            alert('Please enter your email address');
+            return;
+        }
         
         // TODO: Integrate with Iterable API for authentication
-        // For now, just show the user panel
-        console.log('Login attempt:', { email, userId });
+        // For now, automatically sign in with email
+        console.log('Login attempt:', { email });
         
-        // Simulate successful login
-        userDisplayName.textContent = email || userId;
+        // Automatically sign in the user
+        userDisplayName.textContent = email;
         userPanel.style.display = 'block';
         loginModal.classList.remove('active');
+        loginForm.reset();
         
         // Update navigation
         if (loginBtn) {
             loginBtn.style.display = 'none';
         }
+        
+        // Scroll to top to show user panel
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
