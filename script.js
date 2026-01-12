@@ -196,7 +196,8 @@ if (updateProfileBtn) {
     });
 }
 
-// Dropdown menu functionality
+// Dropdown menu functionality - keep menu open on hover
+// CSS handles the hover state, but we also support click for mobile
 const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 dropdownToggles.forEach(toggle => {
     toggle.addEventListener('click', function(e) {
@@ -206,7 +207,7 @@ dropdownToggles.forEach(toggle => {
     });
 });
 
-// Close dropdown when clicking outside
+// Close dropdown when clicking outside (for mobile/click behavior)
 document.addEventListener('click', function(e) {
     if (!e.target.closest('.nav-dropdown')) {
         document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
