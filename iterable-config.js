@@ -1,26 +1,34 @@
 // ============================================
 // Iterable Web SDK Configuration
 // ============================================
-// IMPORTANT: This file will NOT initialize or send any data to Iterable
-// until the API key is provided and approval is given.
+// IMPORTANT: SDK is configured but will NOT send data until explicitly approved
 
 import { initializeWithConfig } from '@iterable/web-sdk';
 
-// Configuration object - API key will be set when provided
+// Get API key from environment variable
+const API_KEY = import.meta.env.VITE_ITERABLE_API_KEY;
+
+// Configuration object
 let iterableConfig = {
-    apiKey: null, // Will be set when API key is provided
+    apiKey: API_KEY || null,
     isInitialized: false,
-    sdkInstance: null
+    sdkInstance: null,
+    approved: false // Safety flag - must be explicitly set to true
 };
 
 /**
- * Initialize Iterable SDK (ONLY CALL AFTER API KEY IS PROVIDED AND APPROVED)
- * @param {string} apiKey - Iterable API key
+ * Initialize Iterable SDK
+ * NOTE: This will only initialize if approved flag is set to true
  * @param {Object} options - Additional configuration options
  */
-export function initializeIterable(apiKey, options = {}) {
-    if (!apiKey) {
-        console.warn('Iterable SDK: API key not provided. SDK will not be initialized.');
+export function initializeIterable(options = {}) {
+    if (!iterableConfig.apiKey) {
+        console.warn('Iterable SDK: API key not found. Check .env.local or Netlify environment variables.');
+        return null;
+    }
+
+    if (!iterableConfig.approved) {
+        console.warn('Iterable SDK: Initialization requires explicit approval. SDK ready but not active.');
         return null;
     }
 
@@ -31,7 +39,7 @@ export function initializeIterable(apiKey, options = {}) {
 
     try {
         const config = {
-            authToken: apiKey,
+            authToken: iterableConfig.apiKey,
             configOptions: {
                 isEuIterableService: options.isEuIterableService || false,
                 ...options.configOptions
@@ -41,16 +49,25 @@ export function initializeIterable(apiKey, options = {}) {
         // Initialize SDK
         const sdk = initializeWithConfig(config);
         
-        iterableConfig.apiKey = apiKey;
         iterableConfig.isInitialized = true;
         iterableConfig.sdkInstance = sdk;
 
-        console.log('Iterable SDK: Successfully initialized (no data sent yet)');
+        console.log('Iterable SDK: Successfully initialized');
         return sdk;
     } catch (error) {
         console.error('Iterable SDK: Initialization error', error);
         return null;
     }
+}
+
+/**
+ * Approve SDK initialization and data sending
+ * Call this function when you're ready to start sending data to Iterable
+ */
+export function approveIterableInitialization() {
+    iterableConfig.approved = true;
+    console.log('Iterable SDK: Approval granted. You can now call initializeIterable()');
+    return initializeIterable();
 }
 
 /**

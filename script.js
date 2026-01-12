@@ -2,11 +2,15 @@
 // BASIC INTERACTIVITY (Placeholder for future API integration)
 // ============================================
 
-// Import Iterable SDK configuration (will not initialize until API key is provided)
-import { initializeIterable, getIterableSDK, isIterableInitialized, resetIterable } from './iterable-config.js';
+// Import Iterable SDK configuration
+import { initializeIterable, getIterableSDK, isIterableInitialized, resetIterable, approveIterableInitialization } from './iterable-config.js';
 
-// Iterable SDK is ready but NOT initialized - will not send any data
-// To initialize: call initializeIterable(apiKey) after API key is provided and approved
+// Iterable SDK is configured with API key but NOT initialized
+// SDK will NOT send any data until approveIterableInitialization() is called
+// 
+// To activate: Call approveIterableInitialization() when ready to send data
+// 
+// Current status: API key loaded, waiting for approval to initialize
 
 // DOM Elements
 const loginBtn = document.getElementById('loginBtn');
@@ -157,7 +161,7 @@ if (signupForm) {
 }
 
 // CTA button handlers (placeholder)
-const ctaButtons = document.querySelectorAll('#ctaPrimary, #ctaSecondary, #ctaBottom');
+const ctaButtons = document.querySelectorAll('#ctaPrimary, #ctaBottom');
 ctaButtons.forEach(btn => {
     if (btn) {
         btn.addEventListener('click', () => {
@@ -191,6 +195,25 @@ if (updateProfileBtn) {
         alert('Profile update - API integration coming soon!');
     });
 }
+
+// Dropdown menu functionality
+const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        const dropdown = this.closest('.nav-dropdown');
+        dropdown.classList.toggle('active');
+    });
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+    }
+});
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

@@ -16,16 +16,26 @@
       <div class="container">
         <div class="header-content">
           <div class="logo">
-            <img
-              src="https://www.ematicsolutions.com/wp-content/uploads/2021/01/18-iterable-color.png"
-              alt="Iterable Logo"
-              class="logo-img"
-            />
+            <a href="index.html">
+              <img
+                src="https://www.ematicsolutions.com/wp-content/uploads/2021/01/18-iterable-color.png"
+                alt="Iterable Logo"
+                class="logo-img"
+              />
+            </a>
           </div>
           <nav class="nav" id="mainNav">
             <!-- Navigation will be populated dynamically based on auth state -->
             <a href="#home" class="nav-link">Home</a>
-            <a href="#features" class="nav-link">Features</a>
+            <div class="nav-dropdown">
+              <a href="#features" class="nav-link dropdown-toggle">Features</a>
+              <div class="dropdown-menu">
+                <a href="data-capture.html" class="dropdown-item">Data Capture</a>
+                <a href="personalisation.html" class="dropdown-item">Personalisation</a>
+                <a href="automation.html" class="dropdown-item">Automation</a>
+                <a href="analytics.html" class="dropdown-item">Analytics</a>
+              </div>
+            </div>
             <a href="#about" class="nav-link">About</a>
             <a href="#signup" class="nav-link" id="signupLink">Sign Up</a>
             <button class="btn btn-secondary" id="loginBtn">Sign In</button>
@@ -53,12 +63,9 @@
             Experience the power of personalised marketing automation. Capture
             data, engage customers, and drive results.
           </p>
-          <div class="hero-cta">
-            <button class="btn btn-primary" id="ctaPrimary">Get Started</button>
-            <button class="btn btn-outline" id="ctaSecondary">
-              Learn More
-            </button>
-          </div>
+            <div class="hero-cta">
+              <button class="btn btn-primary" id="ctaPrimary">Demo Request</button>
+            </div>
         </div>
       </div>
     </section>
@@ -159,7 +166,7 @@
     <section class="signup-section" id="signup">
       <div class="container">
         <div class="signup-content">
-          <h2 class="section-title">Create Your Account</h2>
+            <h2 class="section-title">Sign up for Demo</h2>
           <p class="signup-description">
             Join us today and start experiencing personalised marketing
             automation.
