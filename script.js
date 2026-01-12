@@ -10,6 +10,10 @@ const loginForm = document.getElementById('loginForm');
 const userPanel = document.getElementById('userPanel');
 const logoutBtn = document.getElementById('logoutBtn');
 const userDisplayName = document.getElementById('userDisplayName');
+const userMenu = document.getElementById('userMenu');
+const userMenuEmail = document.getElementById('userMenuEmail');
+const headerLogoutBtn = document.getElementById('headerLogoutBtn');
+const signupLink = document.getElementById('signupLink');
 
 // Modal functionality
 if (loginBtn) {
@@ -51,13 +55,20 @@ if (loginForm) {
         
         // Automatically sign in the user
         userDisplayName.textContent = email;
+        userMenuEmail.textContent = email;
         userPanel.style.display = 'block';
         loginModal.classList.remove('active');
         loginForm.reset();
         
-        // Update navigation
+        // Update navigation - show user menu, hide sign in button
         if (loginBtn) {
             loginBtn.style.display = 'none';
+        }
+        if (userMenu) {
+            userMenu.style.display = 'flex';
+        }
+        if (signupLink) {
+            signupLink.style.display = 'none';
         }
         
         // Scroll to top to show user panel
@@ -66,15 +77,34 @@ if (loginForm) {
 }
 
 // Logout functionality
+const handleLogout = () => {
+    // TODO: Clear Iterable session/tokens
+    userPanel.style.display = 'none';
+    if (loginBtn) {
+        loginBtn.style.display = 'inline-block';
+    }
+    if (userMenu) {
+        userMenu.style.display = 'none';
+    }
+    if (signupLink) {
+        signupLink.style.display = 'inline-block';
+    }
+    loginForm.reset();
+    // Clear user display
+    if (userDisplayName) {
+        userDisplayName.textContent = 'User';
+    }
+    if (userMenuEmail) {
+        userMenuEmail.textContent = '';
+    }
+};
+
 if (logoutBtn) {
-    logoutBtn.addEventListener('click', () => {
-        // TODO: Clear Iterable session/tokens
-        userPanel.style.display = 'none';
-        if (loginBtn) {
-            loginBtn.style.display = 'inline-block';
-        }
-        loginForm.reset();
-    });
+    logoutBtn.addEventListener('click', handleLogout);
+}
+
+if (headerLogoutBtn) {
+    headerLogoutBtn.addEventListener('click', handleLogout);
 }
 
 // Sign Up form submission (placeholder - will integrate with Iterable API later)

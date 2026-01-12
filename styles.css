@@ -111,6 +111,29 @@ body {
     color: var(--color-primary);
 }
 
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.user-menu-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-menu-email {
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    margin-right: var(--spacing-xs);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-sm);
+}
+
 /* ============================================
    BUTTONS
    ============================================ */
@@ -664,6 +687,16 @@ body {
     
     .nav-link {
         display: none;
+    }
+    
+    .user-menu {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: var(--spacing-xs);
+    }
+    
+    .user-menu-email {
+        font-size: var(--font-size-xs);
     }
     
     .hero-title {
