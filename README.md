@@ -72,9 +72,7 @@ The site is deployed at: `iterabledemoanz.netlify.app`
 The project uses the Iterable Web SDK for marketing automation. The SDK is configured but will not send data until explicitly approved.
 
 For more details, see:
-- `ITERABLE_SETUP.md` - SDK setup and configuration
-- `API_KEY_STORAGE.md` - API key storage information
-- `SETUP_GUIDE.md` - Detailed setup instructions
+- `SETUP.md` - Complete setup, configuration, and deployment guide
 
 ## Security Notes
 
