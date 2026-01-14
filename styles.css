@@ -607,9 +607,24 @@ body {
     text-align: center;
 }
 
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
 .footer-text {
     color: var(--color-text-light);
     font-size: var(--font-size-sm);
+}
+
+.footer-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* ============================================
@@ -821,6 +836,263 @@ body {
     left: 0;
     color: var(--color-primary);
     font-weight: bold;
+}
+
+/* ============================================
+   API MESSAGES (Success/Error notifications)
+   ============================================ */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.api-message {
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+}
+
+/* ============================================
+   FORM STYLES (for Custom Event and Update Profile pages)
+   ============================================ */
+.form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group textarea {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: var(--font-size-base);
+  font-family: inherit;
+}
+
+.form-group textarea {
+  resize: vertical;
+  font-family: 'Courier New', monospace;
+  font-size: var(--font-size-sm);
+}
+
+.form-help {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+.result-message {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.result-message-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.result-message-error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.section-description {
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+.section-description code {
+  background: var(--color-bg-light);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: var(--font-size-sm);
+}
+
+/* Key-Value Pair Builder */
+.key-value-container {
+  margin-bottom: var(--spacing-sm);
+}
+
+.key-value-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+  align-items: center;
+}
+
+.key-input,
+.value-input {
+  padding: var(--spacing-xs);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+}
+
+.btn-remove-field {
+  background: #E74C3C;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.btn-remove-field:hover {
+  background: #C0392B;
+}
+
+#addDataFieldBtn,
+#addProfileFieldBtn {
+  margin-top: var(--spacing-xs);
+}
+
+/* ============================================
+   API NOTIFICATIONS (Enhanced for demo)
+   ============================================ */
+.api-notifications-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    max-width: 400px;
+}
+
+.api-notification {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: var(--spacing-md);
+    min-width: 320px;
+    animation: slideIn 0.3s ease;
+    border-left: 4px solid;
+}
+
+.api-notification-success {
+    border-left-color: #4A90E2;
+}
+
+.api-notification-error {
+    border-left-color: #E74C3C;
+}
+
+.api-notification-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.api-notification-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.api-notification-success .api-notification-icon {
+    background: #4A90E2;
+    color: white;
+}
+
+.api-notification-error .api-notification-icon {
+    background: #E74C3C;
+    color: white;
+}
+
+.api-notification-title {
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+}
+
+.api-notification-message {
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.4;
+}
+
+.api-notification-details {
+    color: var(--color-text-light);
+    font-size: var(--font-size-xs);
+    font-style: italic;
+    margin-top: var(--spacing-xs);
+    padding-top: var(--spacing-xs);
+    border-top: 1px solid var(--color-border);
+}
+
+.api-notification-hide {
+    animation: slideOut 0.3s ease;
 }
 
 /* ============================================

@@ -9,7 +9,9 @@ export default defineConfig({
         'data-capture': './data-capture.html',
         'personalisation': './personalisation.html',
         'automation': './automation.html',
-        'analytics': './analytics.html'
+        'analytics': './analytics.html',
+        'custom-event': './custom-event.html',
+        'update-profile': './update-profile.html'
       }
     }
   },
